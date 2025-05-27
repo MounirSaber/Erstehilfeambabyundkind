@@ -22,6 +22,7 @@
       display: flex;
       justify-content: center;
       background-color: #f06292;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
@@ -54,6 +55,24 @@
       height: auto;
       margin-bottom: 1rem;
     }
+    form input, form select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: #e91e63;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #d81b60;
+    }
   </style>
 </head>
 <body>
@@ -82,14 +101,33 @@
       <li>✅ Erste Hilfe am Säugling (Notfälle im 1. Lebensjahr)</li>
       <li>✅ Erste Hilfe am Kleinkind & Kind</li>
       <li>📍 Der Kurs findet ausschließlich vor Ort statt</li>
-      <li>📅 Dauer: ca. 3 Stunden</li>
-      <li>💶 Preis: 25 € pro Person</li>
+      <li>📅 Dauer: 3,5 Stunden</li>
+      <li>💶 Preis: 25 € pro Person (Bezahlung vor Ort in bar)</li>
+      <li>👥 Maximal 20 Teilnehmer pro Kurs</li>
+      <li>🗓️ Samstags: 09:00–12:30 & 13:00–16:30 | Sonntags: 10:00–13:30 & 14:00–17:30</li>
     </ul>
   </div>
 
   <div class="content" id="buchung">
     <h2>Kurs buchen</h2>
-    <p>Das Buchungssystem wird in Kürze verfügbar sein. Bitte kontaktiere uns per E-Mail zur Anmeldung.</p>
+    <form name="booking" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="booking">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">E-Mail</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="kurs">Kurstermin wählen</label>
+      <select id="kurs" name="kurs" required>
+        <option value="Samstag 09:00 – 12:30">Samstag 09:00 – 12:30</option>
+        <option value="Samstag 13:00 – 16:30">Samstag 13:00 – 16:30</option>
+        <option value="Sonntag 10:00 – 13:30">Sonntag 10:00 – 13:30</option>
+        <option value="Sonntag 14:00 – 17:30">Sonntag 14:00 – 17:30</option>
+      </select>
+
+      <button type="submit">Buchung absenden</button>
+    </form>
   </div>
 
   <div class="content" id="kontakt">
