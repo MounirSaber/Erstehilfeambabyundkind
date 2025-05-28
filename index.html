@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Erste Hilfe Kurse Baby & Kind</title>
   <style>
     body {
@@ -34,17 +34,6 @@
     }
     .content {
       padding: 2rem;
-    }
-    .hidden {
-      display: none;
-    }
-    .visible {
-      display: block;
-      background-color: #dcedc8;
-      padding: 1rem;
-      margin-top: 1rem;
-      border: 1px solid #aed581;
-      border-radius: 5px;
     }
     footer {
       background-color: #eee;
@@ -85,24 +74,6 @@
       background-color: #d81b60;
     }
   </style>
-  <script>
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const data = new FormData(form);
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
-      })
-      .then(() => {
-        form.reset();
-        document.getElementById('form-success').classList.remove('hidden');
-      })
-      .catch(error => alert('Es gab ein Problem: ' + error));
-    }
-  </script>
 </head>
 <body>
   <header>
@@ -139,7 +110,7 @@
 
   <div class="content" id="buchung">
     <h2>Kurs buchen</h2>
-    <form name="booking" method="POST" data-netlify="true" onsubmit="handleFormSubmit(event)">
+    <form name="booking" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="booking">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
@@ -157,9 +128,6 @@
 
       <button type="submit">Buchung absenden</button>
     </form>
-    <div id="form-success" class="hidden">
-      <p class="visible">✅ Vielen Dank für deine Buchung! Wir melden uns in Kürze per E-Mail bei dir.</p>
-    </div>
   </div>
 
   <div class="content" id="kontakt">
