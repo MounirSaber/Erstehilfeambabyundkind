@@ -176,13 +176,8 @@
       <label for="geburtsdatum">Geburtsdatum</label>
       <input type="date" id="geburtsdatum" name="geburtsdatum" required>
 
-      <label for="kurs">Kurstermin wählen</label>
-      <select id="kurs" name="kurs" required>
-  <option value="Samstag, 08. Juni 2025 – 11:00 bis 14:30">Samstag, 08. Juni 2025 – 11:00 bis 14:30</option>
-  <option value="Sonntag, 09. Juni 2025 – 11:00 bis 14:30">Sonntag, 09. Juni 2025 – 11:00 bis 14:30</option>
-  <option value="Samstag, 15. Juni 2025 – 11:00 bis 14:30">Samstag, 15. Juni 2025 – 11:00 bis 14:30</option>
-  <option value="Sonntag, 16. Juni 2025 – 11:00 bis 14:30">Sonntag, 16. Juni 2025 – 11:00 bis 14:30</option>
-</select>
+      <label for="kursdatum">Kurstermin wählen</label>
+<input type="date" id="kursdatum" name="kursdatum" required min="2025-06-07" oninput="validateWeekend(this)">
 
       <button type="submit">Buchung absenden</button>
     </form>
@@ -215,5 +210,16 @@
   <footer>
     &copy; 2025 Erste Hilfe Baby & Kind – Alle Rechte vorbehalten
   </footer>
-</body>
+<script>
+  function validateWeekend(input) {
+    const date = new Date(input.value);
+    const day = date.getUTCDay();
+    if (day !== 0 && day !== 6) {
+      alert('Bitte wähle einen Samstag oder Sonntag.');
+      input.value = '';
+    }
+  }
+</script>
+
+$1
 </html>
